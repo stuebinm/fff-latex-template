@@ -1,0 +1,54 @@
+\documentclass[a4paper]{article}
+
+
+%%% HEADER INFORMATION
+
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{xltxtra}
+\usepackage{listings}
+\usepackage{csquotes}
+
+
+% other definitions
+\input{resources/config.tex}
+
+
+% standard fff fonts
+\newfontfamily\jost{Jost.ttf}
+\newfontfamily\headline[Scale=4.5]{Jost-400.ttf}
+\setmainfont[Scale=1]{merriweather.otf}
+
+\newcommand{\maintitle}{F{\small FF-}T{\small EMPLATE}}
+\renewcommand{\description}{Ein Template für fff-Dokumente, vollständig geschrieben in \LaTeX.\\ Bitte nur mit \XeLaTeX aufrufen, sonst schlägt der Compile fehl!}
+
+\begin{document}
+
+\makeheader
+
+\section{Hinweise zur Benutzung}
+
+\subsection*{Zum Typesetting}
+
+Bitte beachtet, dass es eigentlich keine Trennung zwischen dem Text im Header und dem hier auf der \enquote{normalen} Seite gibt --- i.e. wenn, ihr oben weniger Text in den Untertitel/die Beschreibung packt, rutscht der ganze Rest der Seite etwas nach oben. Optimal sieht das Template aus wenn genau zwei Zeilen Beschreibung vorhanden sind; ist weniger da, schaut am besten in \lstinline{resources/config.tex} nach und ändert den entsprechenden Abstand dort, oder fügt am Anfang vom Dokument einen negativen \lstinline{vspace} ein (das sollte denk ich auch funktionieren).
+
+\subsection*{Über das Template}
+
+Alles wichtige liegt im Ordner \lstinline{resources/}, insbesondere auch der Jost-Font, den fff überall verwendet. Wer will kann auch mit \lstinline{config.tex} rumspielen und versuchen, ein besseres Template zu bekommen.
+
+Der Header oben ist eigentlich nur ein Hintergrundbild (bzw. Hintergrundvektorgraphik) mit etwas weißem Text darüber; die Social Media-Links darin sind hardcoded als Teil des Hintergrunds. Falls ihr die ändern wollt müsst ihr \lstinline{resources/image.pdf} anpassen (z.B. mit Inkscape o.ä.).
+
+In der Überschrift sind die ersten Buchstaben von groß geschriebenen Wörtern etwas größer --- das muss zurzeit noch per Hand gemacht werden (siehe die Redefinition von \lstinline{\maintitle} in \lstinline{text.tex}).
+
+
+\subsection*{Compiling}
+
+Das Template funktionier leider nur mit \lstinline{xelatex}, andernfalls gehen die Schriftarten kaputt und \LaTeX beschwert sich. \XeLaTeX sollte eigentlich in jedem normalen \lstinline{texlive}-Paket eurer Lieblings-Distro enthalten sein, falls nicht einfach mal im Paketmanager nachschauen (bei Windows müsst ihrs selber rausfinden, da hab ich keine Ahnung von …).
+
+Manchmal scheint \XeLaTeX den Header zu vergessen, der ist dann einfach nicht da (der Text darauf schon, aber der ist dann halt weiß auf weiß). Falls das passieren sollte, einfach nochmal kompiliern, dann ists normal wieder da.
+
+
+
+
+
+\end{document}
